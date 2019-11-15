@@ -50,8 +50,8 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ -f /etc/centos-release ]]; then
     DISTRO="centos"
-elif [[ -f /etc/lsb-release ]]; then
-    DISTRO="ubuntu"
+elif [[ -f /etc/os-release ]]; then
+    DISTRO="raspbian"
 fi
 
 if [[ $DISTRO == "centos" ]]; then
@@ -68,7 +68,7 @@ if [[ $DISTRO == "centos" ]]; then
         sudo -E pip3.6 install virtualenv
         python_binary=python3.6
     fi
-elif [[ $DISTRO == "ubuntu" ]]; then
+elif [[ $DISTRO == "raspbian ]]; then
     sudo -E apt update
     sudo -E apt -y install python3-pip python3-venv libgfortran3
     python_binary=python3
